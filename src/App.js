@@ -6,6 +6,8 @@ import { useState } from 'react';
 import Alert from './components/Alert';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NoteState from './context/notes/NoteState';
+import Login from './components/Login';
+import Signup from './components/Signup';
 
 
 
@@ -32,8 +34,10 @@ function App() {
         <Alert alert={alert}/>
         <div className="container">
         <Routes>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/about" element={<About/>}></Route>
+          <Route exact path="/" element={<Home showAlert={showAlert}/>}></Route>
+          <Route exact path="/about" element={<About/>}></Route>
+          <Route exact path="/login" element={<Login showAlert={showAlert}/>}></Route>
+          <Route exact path="/signup" element={<Signup showAlert={showAlert}/>}></Route>
         </Routes>
         </div>
       </BrowserRouter>
